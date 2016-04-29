@@ -16,6 +16,11 @@ cp simulation.input sim_${CO2_COMP}_${CH4_COMP}_${N2_COMP}_${C2H6_COMP}.input
 mv sim_${CO2_COMP}_${CH4_COMP}_${N2_COMP}_${C2H6_COMP}.input inputs
 #./run.sh
 simulate simulation.input
+
+mass=$(./calculate_mass.sh ./Output/System_0)
+
 mkdir Out_${CO2_COMP}_${CH4_COMP}_${N2_COMP}_${C2H6_COMP}
 cp -r Output Out_${CO2_COMP}_${CH4_COMP}_${N2_COMP}_${C2H6_COMP}
 mv Out_${CO2_COMP}_${CH4_COMP}_${N2_COMP}_${C2H6_COMP} outputs/
+
+echo $mass
